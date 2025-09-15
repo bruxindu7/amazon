@@ -7,9 +7,7 @@ const PIX_CREATE_PATH = "/v1/transactions";
 
 // 🔐 Domínios permitidos (altere se precisar)
 const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3002",
-  "https://23f6f4dc5868.ngrok-free.app",
+"https://www.trabalheconosco.site", 
 ];
 
 function isOriginAllowed(request: NextRequest): boolean {

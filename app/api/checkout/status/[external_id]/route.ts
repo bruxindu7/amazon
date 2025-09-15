@@ -4,9 +4,7 @@ import type { NextRequest } from "next/server";
 const BUCKPAY_BASE_URL = "https://api.realtechdev.com.br";
 
 const allowedOrigins = [
- 'https://www.recargasjogo-com.online',
-      'http://localhost:3002',
-        "https://28a2cb767a94.ngrok-free.app", // ✅ seu túnel ngrok
+"https://www.trabalheconosco.site", // ✅ seu túnel ngrok
 
 ];
 
