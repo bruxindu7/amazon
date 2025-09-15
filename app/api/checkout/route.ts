@@ -5,15 +5,19 @@ import type { NextRequest } from "next/server";
 const BUCKPAY_BASE_URL = "https://api.realtechdev.com.br";
 const PIX_CREATE_PATH = "/v1/transactions";
 
-// 🔐 Domínios permitidos (altere se precisar)
+// 🔐 Domínios permitidos
 const allowedOrigins = [
-"https://www.trabalheconosco.site", 
+  "https://www.trabalheconosco.site",
+  "https://trabalheconosco.site",
 ];
 
 function isOriginAllowed(request: NextRequest): boolean {
-  const referer = request.headers.get("referer");
-  if (!referer) return false;
-  return allowedOrigins.some((origin) => referer.startsWith(origin));
+  const referer = request.headers.get("referer") || "";
+  const origin = request.headers.get("origin") || "";
+
+  return allowedOrigins.some(
+    (allowed) => referer.startsWith(allowed) || origin.startsWith(allowed)
+  );
 }
 
 export async function POST(req: NextRequest) {

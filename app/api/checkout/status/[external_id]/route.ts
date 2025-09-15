@@ -3,15 +3,19 @@ import type { NextRequest } from "next/server";
 
 const BUCKPAY_BASE_URL = "https://api.realtechdev.com.br";
 
+// 🔐 Domínios permitidos
 const allowedOrigins = [
-"https://www.trabalheconosco.site", // ✅ seu túnel ngrok
-
+  "https://www.trabalheconosco.site",
+  "https://trabalheconosco.site",
 ];
 
 function isOriginAllowed(request: NextRequest): boolean {
-  const referer = request.headers.get("referer");
-  if (!referer) return false;
-  return allowedOrigins.some((origin) => referer.startsWith(origin));
+  const referer = request.headers.get("referer") || "";
+  const origin = request.headers.get("origin") || "";
+
+  return allowedOrigins.some(
+    (allowed) => referer.startsWith(allowed) || origin.startsWith(allowed)
+  );
 }
 
 export async function GET(
@@ -19,7 +23,10 @@ export async function GET(
   context: { params: Promise<{ external_id: string }> }
 ) {
   if (!isOriginAllowed(request)) {
-    return NextResponse.json({ error: "Clonei certo chora n magicu opkkkkkkkkkk" }, { status: 403 });
+    return NextResponse.json(
+      { error: "Origem não autorizada." },
+      { status: 403 }
+    );
   }
 
   try {

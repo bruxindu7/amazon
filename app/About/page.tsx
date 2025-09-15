@@ -97,7 +97,7 @@ export default function ComoFunciona() {
       {/* CTA FINAL */}
       <section className="cta-final">
         <h2>Pronto para começar sua jornada?</h2>
-        <Link href="/Vagas" className="btn-candidatar">
+        <Link href="/jobSearch" className="btn-candidatar">
           Ver vagas disponíveis →
         </Link>
       </section>
