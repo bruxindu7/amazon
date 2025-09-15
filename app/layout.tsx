@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "./styles.css"; // <-- seu CSS antigo aqui
+import "./styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,19 +26,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17532056473"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17532056473');
-            `,
-          }}
-        />
-
         {/* Meta Pixel Code */}
         <script
           dangerouslySetInnerHTML={{
@@ -56,18 +43,21 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* End Meta Pixel Code */}
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+
+        {/* Noscript precisa estar no body */}
         <noscript>
           <img
             height="1"
             width="1"
             style={{ display: "none" }}
             src="https://www.facebook.com/tr?id=781461864509228&ev=PageView&noscript=1"
+            alt="fb-pixel"
           />
         </noscript>
-        {/* End Meta Pixel Code */}
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
       </body>
     </html>
   );

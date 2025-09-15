@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Script from "next/script"; // 👉 importa Script do Next.js
+import Script from "next/script"; 
 import "./sucess.css";
 
 interface Vaga {
@@ -37,7 +37,7 @@ export default function Sucesso() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: 3790, // R$ 37,90 em centavos
+          amount: 3790,
           orderId,
           description: `Verificação de titularidade para vaga ${vaga.titulo}`,
           payer: {
@@ -50,7 +50,7 @@ export default function Sucesso() {
       const data = await r.json();
       if (r.ok) {
         localStorage.setItem("pixCheckout", JSON.stringify(data));
-        router.push("/payment"); // 👉 redireciona
+        router.push("/payment");
       } else {
         alert("Erro ao gerar cobrança PIX.");
       }
@@ -64,7 +64,7 @@ export default function Sucesso() {
 
   return (
     <main className="candidatura sucesso">
-      {/* Meta Pixel Code */}
+      {/* Meta Pixel */}
       <Script id="meta-pixel" strategy="afterInteractive">
         {`
           !function(f,b,e,v,n,t,s)
@@ -87,7 +87,31 @@ export default function Sucesso() {
           src="https://www.facebook.com/tr?id=1555441225817856&ev=PageView&noscript=1"
         />
       </noscript>
-      {/* End Meta Pixel Code */}
+      {/* End Meta Pixel */}
+
+      {/* Utmify Pixel */}
+      <Script id="utmify-pixel" strategy="afterInteractive">
+        {`
+          window.pixelId = "68c70dcbed847a322e7f1a66";
+          var a = document.createElement("script");
+          a.setAttribute("async", "");
+          a.setAttribute("defer", "");
+          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+          document.head.appendChild(a);
+        `}
+      </Script>
+
+      {/* Utmify UTMs */}
+      <Script
+        id="utmify-utms"
+        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+        data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids
+        strategy="afterInteractive"
+        async
+        defer
+      />
+
 
       <header>
         <div className="navbar">
