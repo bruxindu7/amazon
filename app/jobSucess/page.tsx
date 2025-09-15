@@ -36,7 +36,7 @@ const r = await fetch("/api/checkout", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    amount: 600, // R$ 37,90 em centavos
+    amount: 3790, // R$ 37,90 em centavos
     orderId,
     description: `Verificação de titularidade para vaga ${vaga.titulo}`,
     payer: {
