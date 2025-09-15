@@ -1,36 +1,15 @@
+// app/api/checkout/status/[external_id]/route.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const BUCKPAY_BASE_URL = "https://api.realtechdev.com.br";
 
-// 🔐 Domínios permitidos
-const allowedOrigins = [
-  "https://www.trabalheconosco.site",
-  "https://trabalheconosco.site",
-];
-
-function isOriginAllowed(request: NextRequest): boolean {
-  const referer = request.headers.get("referer") || "";
-  const origin = request.headers.get("origin") || "";
-
-  return allowedOrigins.some(
-    (allowed) => referer.startsWith(allowed) || origin.startsWith(allowed)
-  );
-}
-
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ external_id: string }> }
+  { params }: { params: { external_id: string } }
 ) {
-  if (!isOriginAllowed(request)) {
-    return NextResponse.json(
-      { error: "Origem não autorizada." },
-      { status: 403 }
-    );
-  }
-
   try {
-    const { external_id } = await context.params;
+    const { external_id } = params;
 
     const r = await fetch(
       `${BUCKPAY_BASE_URL}/v1/transactions/external_id/${external_id}`,
