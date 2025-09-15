@@ -139,7 +139,7 @@ const handleSubmit = (e: React.FormEvent) => {
     if (currentStep === 4) {
       const timer = setTimeout(() => {
         router.push("/jobSucess");
-      }, 30000);
+      }, 60000);
       return () => clearTimeout(timer);
     }
   }, [currentStep, router]);
