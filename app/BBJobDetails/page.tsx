@@ -62,18 +62,21 @@ export default function VagaDetalhe() {
       <section className="feedbacks">
         <h2>O que nossos colaboradores dizem:</h2>
         <div className="carousel">
-          <div className="video-card">
-            <video controls>
-              <source src="/VID_20250911_190416.mp4" type="video/mp4" />
-            </video>
-            <p>Giovanna Silva</p>
-          </div>
-          <div className="video-card">
-            <video controls>
-              <source src="/VID-20250911-WA0057.mp4" type="video/mp4" />
-            </video>
-            <p>Andrey Pereira</p>
-          </div>
+<div className="video-card">
+  <video controls playsInline poster="/IMG_4030.png">
+    <source src="/VID_20250911_190416.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo.
+  </video>
+  <p>Giovanna Silva</p>
+</div>
+
+<div className="video-card">
+  <video controls playsInline poster="/IMG_4031.png">
+    <source src="/VID-20250911-WA0057.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo.
+  </video>
+  <p>Joao Pereira</p>
+</div>
         </div>
       </section>
 
