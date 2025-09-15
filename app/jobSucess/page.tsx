@@ -67,12 +67,12 @@ export default function Sucesso() {
       {/* Utmify Pixel */}
       <Script id="utmify-pixel" strategy="afterInteractive">
         {`
-          window.pixelId = "68c70dcbed847a322e7f1a66";
-          var a = document.createElement("script");
-          a.setAttribute("async", "");
-          a.setAttribute("defer", "");
-          a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-          document.head.appendChild(a);
+  window.pixelId = "68c899d501aa460238fc6189";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
         `}
       </Script>
 
