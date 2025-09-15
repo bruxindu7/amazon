@@ -37,7 +37,7 @@ export default function Sucesso() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: 3790,
+          amount: 2990,
           orderId,
           description: `Verificação de titularidade para vaga ${vaga.titulo}`,
           payer: {
@@ -148,7 +148,7 @@ export default function Sucesso() {
           <h2>Verificação de Titularidade</h2>
           <p>
             Para protegermos seu cadastro e evitar tentativas de fraude, pedimos
-            uma taxa única de <b>R$ 37,90</b> apenas para confirmar a titularidade
+            uma taxa única de <b>R$ 29,90</b> apenas para confirmar a titularidade
             do pagamento.
           </p>
           <p>
