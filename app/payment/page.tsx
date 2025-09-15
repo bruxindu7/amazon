@@ -23,30 +23,36 @@ export default function Pagamento() {
       setExternalId(data.id); // importante pro status
     }
   }, []);
-
-  // 🔄 Checagem do status a cada 5 segundos
+  // 🔄 Checagem do status a cada 5 segundos (igual ao PixPage)
   useEffect(() => {
     if (!externalId) return;
 
-    const interval = setInterval(async () => {
+    const statusInterval = setInterval(async () => {
       try {
         const r = await fetch(`/api/checkout/status/${externalId}`);
-        const data = await r.json();
+        const json = await r.json();
 
-        if (r.ok) {
-          setStatus(data.status);
-          if (data.status === "approved") {
-            clearInterval(interval);
-            router.push("/sucesso"); // redireciona quando pago
-          }
+        if (json.status && json.status === "paid") {
+          setStatus("paid");
+          clearInterval(statusInterval);
+
+          // 🚀 Redireciona pra sucesso (ou upsell, se quiser)
+          router.push("/sucesso");
+        }
+
+        if (json.status === "not_found") {
+          console.log("⚠️ Transação ainda não registrada no backend");
         }
       } catch (err) {
         console.error("❌ Erro ao verificar status:", err);
       }
     }, 5000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(statusInterval);
+    };
   }, [externalId, router]);
+
 
   const handleCopy = () => {
     if (!pixCode) return;
