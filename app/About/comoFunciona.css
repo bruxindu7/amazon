@@ -1,0 +1,121 @@
+.como-funciona {
+  background: #fff;
+  color: #232F3E;
+  font-family: Arial, sans-serif;
+}
+
+/* HERO */
+.hero-como-funciona {
+  text-align: center;
+  padding: 120px 20px 60px;
+  background: #f6f9fc;
+}
+.hero-como-funciona h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.hero-como-funciona p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #394451;
+}
+
+/* ETAPAS */
+.etapas {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.etapas h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.etapas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+.etapa-card {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+.etapa-card:hover {
+  transform: translateY(-5px);
+}
+.etapa-card .numero {
+  display: inline-block;
+  background: #1768C9;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* BENEFÍCIOS */
+.beneficios-como {
+  background: #f3f6f9;
+  padding: 80px 20px;
+  text-align: center;
+}
+.beneficios-como h2 {
+  font-size: 1.8rem;
+  margin-bottom: 50px;
+}
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.beneficio-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.beneficio-card h3 {
+  font-size: 1.2rem;
+  margin: 15px 0 10px;
+}
+.beneficio-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* CTA */
+.cta-final {
+  text-align: center;
+  background: #fff;
+  padding: 80px 20px;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+.cta-final h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.btn-candidatar {
+  background: #1768C9;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-candidatar:hover {
+  background: #0a4a99;
+  transform: translateY(-2px);
+}

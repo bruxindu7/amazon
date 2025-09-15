@@ -1,0 +1,127 @@
+.vaga-detalhe {
+  background: #fff;
+  color: #232F3E;
+  font-family: Arial, sans-serif;
+}
+
+/* HERO */
+.hero-vaga {
+  text-align: center;
+  padding: 120px 20px 40px;
+  background: #f6f9fc;
+}
+.hero-vaga h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.hero-vaga p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #394451;
+}
+/* FEEDBACKS */
+.feedbacks {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.feedbacks h2 {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;   /* centraliza os vídeos */
+  gap: 20px;
+  flex-wrap: wrap;           /* quebra para a linha de baixo em telas pequenas */
+  max-width: 1000px;         /* controla largura máxima do grupo */
+  margin: 0 auto;            /* centraliza o bloco */
+}
+
+.video-card {
+  flex: 1 1 300px;           /* ocupa no mínimo 300px e se adapta */
+  max-width: 420px;          /* largura máxima por vídeo */
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.video-card p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+
+/* SEÇÕES */
+.sobre, .horarios, .beneficios, .equipamentos {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: left;   /* <<< força alinhamento à esquerda */
+}
+
+.sobre h2, .horarios h2, .beneficios h2, .equipamentos h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.sobre p, .horarios p, .equipamentos p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #394451;
+}
+.horarios ul, .beneficios ul, .equipamentos ul {
+  margin-top: 20px;
+  padding-left: 18px;          /* reduz o recuo da lista */
+  list-style: disc outside;    /* bolinha fica colada do lado de fora */
+}
+
+.horarios li, .beneficios li, .equipamentos li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #232F3E;
+  line-height: 1.5;
+  list-style-position: inside; /* força bolinha junto ao texto */
+}
+
+.aviso {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+/* CTA FINAL */
+.cta-final {
+  text-align: center;
+  background: #f3f6f9;
+  padding: 80px 20px;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+.cta-final h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.btn-candidatar {
+  background: #1768C9;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-candidatar:hover {
+  background: #0a4a99;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,166 @@
+/* ============================
+   ESTILO PÁGINA DE PAGAMENTO
+   ============================ */
+
+.pagamento {
+  background: #ffffff;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  color: #232f3e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.navbar-center a {
+  margin: 0 14px;
+  font-size: 14px;
+  color: #374151;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-center a:hover {
+  color: #ff9900;
+}
+
+/* CONTAINER PRINCIPAL */
+.pagamento-box {
+  max-width: 640px;
+  margin: 90px auto;
+  padding: 40px;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.pagamento-box h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #111827;
+}
+
+.pagamento-box p {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* CARD DE PAGAMENTO */
+.pagamento-card {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.pagamento-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.pagamento-card p {
+  font-size: 15px;
+  color: #4b5563;
+  margin-bottom: 22px;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.qr-container img {
+  border: 3px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.pix-chave {
+  font-size: 15px;
+  color: #111827;
+  font-weight: 500;
+  margin-top: 12px;
+}
+/* PIX BOX */
+.pix-box {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pix-label {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.pix-input {
+  width: 100%;
+  min-height: 110px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  color: #374151;
+  background: #f9fafb;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.btn-copiar {
+  display: block;           /* vira bloco */
+  width: 100%;              /* ocupa toda a largura */
+  background: #565c66;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.btn-copiar:hover {
+  background: rgb(96, 103, 114);
+  transform: translateY(-1px);
+}
+
+/* BOTÃO DE CONFIRMAR */
+.btn-confirmar {
+  display: inline-block;
+  background: #1768C9;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.btn-confirmar:hover {
+  background: #0a4a99;
+  transform: translateY(-2px);
+}

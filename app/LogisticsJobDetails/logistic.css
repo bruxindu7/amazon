@@ -1,0 +1,111 @@
+.vaga-detalhe {
+  background: #fff;
+  color: #232F3E;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* HERO */
+.hero-vaga {
+  text-align: center;
+  padding: 120px 20px 50px;
+  background: #f6f9fc;
+  border-bottom: 1px solid #e5e7eb;
+}
+.hero-vaga h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #232F3E;
+}
+.hero-vaga p {
+  margin-top: 20px;
+  font-size: 1.15rem;
+  color: #394451;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* SEÇÕES */
+.sobre, .horarios, .beneficios, .equipamentos {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: left;
+}
+
+.sobre h2, .horarios h2, .beneficios h2, .equipamentos h2 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #232F3E;
+  border-left: 4px solid #1768C9;  /* destaque Amazon */
+  padding-left: 10px;
+}
+
+.sobre p, .horarios p, .equipamentos p {
+  font-size: 1rem;
+  color: #394451;
+  margin-bottom: 20px;
+}
+
+/* LISTAS */
+.horarios ul, .beneficios ul, .equipamentos ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style: disc outside;
+}
+
+.horarios li, .beneficios li, .equipamentos li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #232F3E;
+  line-height: 1.5;
+}
+
+/* AVISO */
+.aviso {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #c0392b;
+  font-weight: bold;
+  background: #fdecea;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;
+}
+
+/* CTA FINAL */
+.cta-final {
+  text-align: center;
+  background: #f3f6f9;
+  padding: 80px 20px;
+  margin-top: 50px;
+  border-top: 1px solid #e5e7eb;
+}
+.cta-final h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #232F3E;
+}
+.btn-candidatar {
+  display: inline-block;
+  background: linear-gradient(90deg, #1768C9, #0f4a94);
+  color: #fff;
+  padding: 14px 50px;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(23, 104, 201, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-candidatar:hover {
+  background: linear-gradient(90deg, #0f4a94, #1768C9);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(23, 104, 201, 0.4);
+}
+.btn-candidatar:active {
+  transform: scale(0.97);
+}
+

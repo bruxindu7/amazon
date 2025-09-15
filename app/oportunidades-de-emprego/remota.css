@@ -1,0 +1,222 @@
+/* remota.css */
+
+/* HERO */
+.hero-remota {
+  text-align: center;
+  padding: 120px 20px 20px;
+}
+.hero-remota h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #232F3E;
+}
+.hero-remota p {
+  margin-top: 50px;
+  font-weight: 700;
+  font-size: 28px;
+  color: #232F3E;
+}
+
+/* CARDS DE VAGAS */
+.cards-vagas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1300px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+.vaga-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.vaga-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #232F3E;
+  margin: 42px 0 0px;
+
+}
+.vaga-card .tag {
+  font-size: 18px;
+  color: #232F3E;
+  font-weight: 600;
+
+}
+.vaga-card p {
+  font-size: 18px;
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+/* VÍDEO */
+.video-remota {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.video-remota h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: #232F3E;
+}
+
+.video-remota video {
+  display: block;         /* garante que seja tratado como bloco */
+  margin: 0 auto;         /* centraliza horizontalmente */
+  max-width: 800px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ETAPAS */
+.etapas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 120px 20px;
+  background: #f6f6f6;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start; /* padrão */
+}
+
+
+.etapas-texto {
+  align-self: center;    /* centraliza verticalmente */
+  max-width: 410px;      /* controla a largura do bloco */
+}
+
+.etapas-texto h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #232F3E;
+}
+
+.etapas-texto p {
+  color: #232F3E;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+.etapas-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.etapas-lista li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #394451;
+  padding-bottom: 35px;        /* espaço entre texto e borda */
+  border-bottom: 1px solid #ddd;
+}
+
+.etapas-lista li:last-child {
+  border-bottom: none;        /* remove a borda do último */
+}
+
+.etapas-lista li img {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+
+/* PORQUE */
+.porque {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #f9f9f9;
+  padding: 160px 20px;
+    color: #232F3E;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.porque > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0 80px;
+}
+
+/* coluna esquerda vai mais pra esquerda */
+.porque > div:first-child {
+  align-items: flex-start;
+  border-right: 1px solid #c2c2c2;
+}
+
+/* coluna direita fica centralizada */
+.porque > div:last-child {
+  align-items: flex-start;
+  padding-left: 70px; /* dá mais respiro da borda */
+}
+
+/* títulos */
+.porque h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* listas */
+.porque ul {
+  margin: 0;
+  padding: 0;
+}
+
+.porque ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #333;
+}
+
+.porque ul li img {
+  flex-shrink: 0;
+}
+
+/* responsivo */
+@media (max-width: 768px) {
+  .porque {
+    grid-template-columns: 1fr;
+  }
+
+  .porque > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+
+  .porque > div:last-child {
+    padding-left: 0;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cards-vagas {
+    grid-template-columns: 1fr;
+  }
+  .porque {
+    grid-template-columns: 1fr;
+  }
+  .etapas {
+    grid-template-columns: 1fr;
+  }
+}

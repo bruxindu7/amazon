@@ -1,0 +1,83 @@
+/* TOPO */
+.vagas-top {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 130px 20px 10px;  /* espaço bem menor */
+  text-align: left;
+}
+
+.vagas-top h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 15px 0;  /* só um respiro */
+  color: #232F3E;
+}
+
+/* LISTA */
+.vagas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px 40px; /* removi o padding-top */
+}
+
+
+/* CARD */
+.vaga-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+  width: 100%;        /* ocupa toda a largura do container */
+}
+
+
+
+.vaga-card:hover {
+  transform: translateY(-2px);
+}
+
+.vaga-img {
+  margin-right: 40px;
+}
+
+.vaga-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #232F3E;
+}
+
+.vaga-info p {
+  font-size: 16px;
+  color: #232F3E;
+  margin: 3px 0;
+}
+
+.vaga-local {
+    font-size: 14px;
+  color: #56616C;
+  font-weight: 600;
+}
+
+/* PAGINAÇÃO */
+.vagas-paginacao {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.vagas-paginacao .pagina-ativa {
+  background: #1768C9;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: default;
+}
