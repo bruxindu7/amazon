@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const { amount, orderId, description, payer } = await req.json();
+    const { amount, orderId, payer } = await req.json();
 
     // sempre trabalhar em centavos
     const amountCents = parseInt(amount);
@@ -47,6 +47,17 @@ export async function POST(req: NextRequest) {
         phone: payer?.phone
           ? "55" + payer.phone.replace(/\D/g, "")
           : undefined,
+      },
+      tracking: {
+        ref: process.env.SITE_NAME || "Amazon", // ✅ identifica o site como Amazon
+        src: null,
+        sck: null,
+        utm_source: null,
+        utm_medium: null,
+        utm_campaign: null,
+        utm_id: null,
+        utm_term: null,
+        utm_content: null,
       },
     };
 
