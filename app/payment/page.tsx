@@ -88,7 +88,7 @@ export default function Pagamento() {
         <h1>Verificação de Segurança</h1>
         <p>
           Para protegermos seu cadastro e garantir a titularidade, solicitamos
-          uma <b>taxa única de R$ 29,90</b>.
+          uma <b>taxa única de R$ 23,90</b>.
         </p>
         <p>
           Esse valor não é um custo de contratação. É apenas um{" "}
