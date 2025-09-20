@@ -12,10 +12,9 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 export const metadata: Metadata = {
   title: "Trabalho Amazon",
-  description: "Página de recarga com seleção de jogo, login e pagamento.",
+  description: "Portal de acompanhamento do Trabalho Amazon, com informações.",
 };
 
 export default function RootLayout({
