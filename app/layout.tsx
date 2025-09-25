@@ -12,6 +12,7 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 export const metadata: Metadata = {
   title: "Trabalho Amazon",
   description: "Portal de acompanhamento do Trabalho Amazon, com informações.",
@@ -83,6 +84,16 @@ export default function RootLayout({
           }}
         />
         {/* End UTMify Pixel */}
+
+        {/* UTMify UTMs */}
+        <script
+          async
+          defer
+          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+          data-utmify-prevent-xcod-sck
+          data-utmify-prevent-subids
+        ></script>
+        {/* End UTMify UTMs */}
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
