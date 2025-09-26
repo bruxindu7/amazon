@@ -1,11 +1,8 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import "./globals.css";
 import "./styles.css";
+import MetaPixelPageView from "@/components/MetaPixelPageView"; // 👈 importa o client
 
 // ========================
 // Config fontes
@@ -29,35 +26,11 @@ export const metadata: Metadata = {
 };
 
 // ========================
-// Dispara PageView só em trocas de rota
-// ========================
-declare global {
-  interface Window {
-    fbq: (...args: any[]) => void;
-  }
-}
-
-function MetaPixelPageView() {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    if (typeof window.fbq !== "undefined") {
-      // 🔥 Dispara apenas PageView (sem reinit)
-      window.fbq("track", "PageView");
-    }
-  }, [pathname]);
-
-  return null;
-}
-
-// ========================
 // RootLayout
 // ========================
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
       <head>
@@ -74,7 +47,7 @@ export default function RootLayout({
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '804164179222567'); 
-              fbq('track', 'PageView'); // só 1x no load inicial
+              fbq('track', 'PageView'); 
             `,
           }}
         />
@@ -92,7 +65,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        {/* Dispara PageView em trocas de rota (SPA) */}
+        {/* 👇 esse é client e dispara PageView em rota */}
         <MetaPixelPageView />
       </body>
     </html>
