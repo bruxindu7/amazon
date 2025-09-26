@@ -1,8 +1,15 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 import "./styles.css";
 
+// ========================
+// Config fontes
+// ========================
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,11 +20,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// ========================
+// Meta infos
+// ========================
 export const metadata: Metadata = {
   title: "Trabalho Amazon",
   description: "Portal de acompanhamento do Trabalho Amazon, com informações.",
 };
 
+// ========================
+// Componente que dispara PageView ao trocar rota
+// ========================
+declare global {
+  interface Window {
+    fbq: (...args: any[]) => void;
+  }
+}
+
+function MetaPixelPageView() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (typeof window.fbq !== "undefined") {
+      window.fbq("track", "PageView");
+    }
+  }, [pathname]);
+
+  return null;
+}
+
+// ========================
+// RootLayout
+// ========================
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -95,8 +129,12 @@ export default function RootLayout({
         ></script>
         {/* End UTMify UTMs */}
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
+        {/* Dispara PageView sempre que mudar de rota */}
+        <MetaPixelPageView />
       </body>
     </html>
   );
