@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 // ========================
-// Componente que dispara PageView ao trocar rota
+// Dispara PageView só em trocas de rota
 // ========================
 declare global {
   interface Window {
@@ -42,6 +42,7 @@ function MetaPixelPageView() {
 
   useEffect(() => {
     if (typeof window.fbq !== "undefined") {
+      // 🔥 Dispara apenas PageView (sem reinit)
       window.fbq("track", "PageView");
     }
   }, [pathname]);
@@ -60,23 +61,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17550554496"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17550554496');
-            `,
-          }}
-        />
-        {/* End Google tag */}
-
         {/* Meta Pixel Code */}
         <script
           dangerouslySetInnerHTML={{
@@ -89,8 +73,8 @@ export default function RootLayout({
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '804164179222567');
-              fbq('track', 'PageView');
+              fbq('init', '804164179222567'); 
+              fbq('track', 'PageView'); // só 1x no load inicial
             `,
           }}
         />
@@ -103,37 +87,12 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
-
-        {/* UTMify Pixel */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.pixelId = "68cdf82e0b5859f6b00e2fb9";
-              var a = document.createElement("script");
-              a.setAttribute("async", "");
-              a.setAttribute("defer", "");
-              a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-              document.head.appendChild(a);
-            `,
-          }}
-        />
-        {/* End UTMify Pixel */}
-
-        {/* UTMify UTMs */}
-        <script
-          async
-          defer
-          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-          data-utmify-prevent-xcod-sck
-          data-utmify-prevent-subids
-        ></script>
-        {/* End UTMify UTMs */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        {/* Dispara PageView sempre que mudar de rota */}
+        {/* Dispara PageView em trocas de rota (SPA) */}
         <MetaPixelPageView />
       </body>
     </html>
